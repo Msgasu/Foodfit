@@ -1,0 +1,180 @@
+
+.meal-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  border-radius: 10px; 
+  overflow: hidden; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.meal-table th, .meal-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.meal-table th {
+  background-color: #f2f2f2;
+  color: #333; 
+  font-weight: bold; 
+}
+
+.meal-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+.meal-table td:last-child {
+  text-align: center;
+}
+
+.edit-meal-button, .delete-meal-button {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+.edit-meal-button, .delete-meal-button, .add-meal-button {
+  border-radius: 5px;
+  padding: 8px 16px;
+}
+
+
+.edit-meal-button:hover, .delete-meal-button:hover, .add-meal-button:hover {
+  background-color: #f0f0f0; 
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 60%; 
+  max-width: 400px; 
+  border-radius: 8px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+.modal-close {
+  float: right;
+  cursor: pointer;
+  font-size: 24px;
+  color: #888;
+  margin-top: -10px; 
+  margin-right: -10px; 
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-content label {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.modal-content label i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+
+.material-icons {
+  vertical-align: middle;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="time"],
+.modal-content input[type="date"],
+.modal-content button {
+  width: calc(100% - 40px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box; 
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="time"]:focus,
+.modal-content input[type="date"]:focus,
+.modal-content button:focus {
+  outline: none;
+  border-color: #555;
+}
+
+.modal-content button {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+}
+
+
+.add-meal-button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; 
+}
+
+.add-meal-button:hover {
+  background-color: #45a049;
+}
+
+
+.add-meal-button i {
+  margin-right: 5px; 
+}
+
+#mealPlanningSection {
+  margin-top: 20px; 
+ 
+}
+
+
+.swal2-popup {
+  width: 300px; 
+  max-width: 100%;
+}

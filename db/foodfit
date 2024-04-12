@@ -1,0 +1,107 @@
+-- Create database if not exists
+DROP DATABASE IF EXISTS foodfit;
+CREATE DATABASE IF NOT EXISTS foodfit;
+
+-- Use the 'foodfit' database
+USE foodfit;
+
+-- Create a table for roles
+CREATE TABLE roles (
+    rid INT PRIMARY KEY,
+    role_name VARCHAR(50)
+);
+
+-- Insert predefined roles (e.g., 'admin', 'user')
+INSERT INTO roles (rid, role_name) VALUES (1, 'admin'), (2, 'user');
+
+-- Create a table for users
+CREATE TABLE users (
+    pid INT PRIMARY KEY AUTO_INCREMENT,
+    f_name VARCHAR(50),
+    l_name VARCHAR(50),
+    email VARCHAR(100),
+    dob DATE,
+    tel VARCHAR(20) NOT NULL,
+    passwd VARCHAR(255),
+    role_id INT DEFAULT 2, -- Default role is 'user'
+    FOREIGN KEY (role_id) REFERENCES roles(rid)
+);
+
+-- Create a table for food intake
+CREATE TABLE food_intake (
+    intakeid INT PRIMARY KEY AUTO_INCREMENT,
+    pid INT,
+    food_name VARCHAR(100),
+    calorie_count INT,
+    intake_time TIMESTAMP,
+    FOREIGN KEY (pid) REFERENCES users(pid)
+);
+
+-- Create a table for related websites
+CREATE TABLE related_websites (
+    website_id INT PRIMARY KEY AUTO_INCREMENT,
+    website_name VARCHAR(100),
+    website_url VARCHAR(255)
+);
+
+
+-- Create a table for goal types
+CREATE TABLE goal_types (
+    goal_type_id INT PRIMARY KEY AUTO_INCREMENT,
+    goal_type_name VARCHAR(50) NOT NULL
+);
+
+-- Insert predefined goal types
+INSERT INTO goal_types (goal_type_name) VALUES
+('Weight Loss'),
+('Muscle Gain'),
+('Improved Energy Levels'),
+('Better Overall Health');
+
+
+-- Create a table for status
+CREATE TABLE status (
+    status_id INT PRIMARY KEY AUTO_INCREMENT,
+    status_name VARCHAR(50) NOT NULL
+);
+
+INSERT INTO status (status_name) VALUES
+('Completed'),
+('In Progress'),
+('Cancelled');
+
+-- Create a table for goals
+CREATE TABLE goals (
+    goalid INT PRIMARY KEY AUTO_INCREMENT,
+    pid INT,
+    goal_description TEXT,
+    goal_type VARCHAR(50),
+    targetperiod INT,
+    status_id INT,
+    FOREIGN KEY (pid) REFERENCES users(pid),
+    FOREIGN KEY (status_id) REFERENCES status(status_id)
+);
+
+-- Create a table for meal plans
+CREATE TABLE meal_plans (
+    planid INT PRIMARY KEY AUTO_INCREMENT,
+    pid INT,
+    plan_name VARCHAR(100),
+    meal_time TIME,
+    date_created DATE,
+    FOREIGN KEY (pid) REFERENCES users(pid)
+);
+
+-- Create a table for progress tracking
+CREATE TABLE progress_tracking (
+    tracking_id INT PRIMARY KEY AUTO_INCREMENT,
+    pid INT,
+	goal_type_id INT,
+    entry_date DATE,
+    progress_update TEXT,
+    FOREIGN KEY (pid) REFERENCES users(pid),
+	FOREIGN KEY (goal_type_id) REFERENCES goal_types(goal_type_id)
+);
+
+
+

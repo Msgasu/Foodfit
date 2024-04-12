@@ -1,0 +1,57 @@
+
+.websites {
+  margin-top: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+}
+
+.website {
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease-in-out;
+}
+
+.website:hover {
+  transform: translateY(-5px);
+}
+
+.website .website-link {
+  text-decoration: none; 
+  color: inherit;
+}
+
+.website .website-link:hover {
+  color: rgb(170, 207, 95); 
+}
+
+.website-preview {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.website h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.website p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.website-preview img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+.website-preview img:hover {
+  transform: scale(1.05);
+}
